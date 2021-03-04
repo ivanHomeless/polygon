@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 
 class UsersTableSeeder extends Seeder
 {
@@ -15,7 +16,7 @@ class UsersTableSeeder extends Seeder
             [
                 'name'     => 'Автор неизвестен',
                 'email'    => 'author_unknow@g.g',
-                'password' => bcrypt(str_random(16)),
+                'password' => bcrypt(Str::random(16)),
             ],
             [
                 'name'     => 'Автор',

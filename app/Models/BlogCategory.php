@@ -10,7 +10,11 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * Class BlogCategory
  * @package App\Models
  * @mixin Eloquent
+ * @property $title
+ * @property $slug
+ *
  */
+
 class BlogCategory extends Model
 {
     use SoftDeletes;
@@ -21,4 +25,7 @@ class BlogCategory extends Model
         'parent_id',
         'description',
     ];
+    /**
+     * @var mixed|string
+     */
 }

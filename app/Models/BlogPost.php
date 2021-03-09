@@ -6,6 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
+/**
+ * Class BlogPost
+ * @package App\Models
+ *
+ * @property $slug
+ * @property $is_published
+ * @property $published_at
+ * @property $title
+ */
 class BlogPost extends Model
 {
     use SoftDeletes;
@@ -21,6 +30,9 @@ class BlogPost extends Model
         'is_published',
         'user_id',
     ];
+    /**
+     * @var mixed
+     */
 
     /**
      * Категория статьи

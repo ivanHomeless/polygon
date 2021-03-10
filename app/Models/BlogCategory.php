@@ -40,16 +40,35 @@ class BlogCategory extends Model
 
     public function getParentTitleAttribute()
     {
-        $title = $this->parentCategory->title
+        return $this->parentCategory->title
         ?? ($this->isRoot()
             ? 'Корень'
             : '???');
+    }
 
-        return $title;
+    /**
+     * Accessor
+     * @param $valueFromObject
+     * @return bool|false|string|string[]|null
+     */
+    public function getTitleAttribute($valueFromObject)
+    {
+        return mb_strtoupper($valueFromObject);
     }
 
     protected function isRoot()
     {
         return $this->id == self::ROOT;
     }
+
+    /**
+     * Mutator
+     * @param $incomingValue
+     * @return bool|false|string|string[]|null
+     */
+    public function setTitleAttribute($incomingValue)
+    {
+        return $this->attributes['title'] = mb_strtolower($incomingValue);
+    }
+
 }

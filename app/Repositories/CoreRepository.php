@@ -10,7 +10,7 @@ use Illuminate\Foundation\Application;
  * Class CoreRepository
  * @package App\Repositories
  *
- * Резопизиторий работы с сущностью.
+ * Репозиторий работы с сущностью.
  * Может выдавать наборы данных.
  * Не может создавать/изменять сущности.
  */

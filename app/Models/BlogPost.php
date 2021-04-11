@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * Class BlogPost
  * @package App\Models
  *
+ * @property $id
  * @property $slug
  * @property $is_published
  * @property $published_at

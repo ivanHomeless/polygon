@@ -3,6 +3,7 @@
 namespace App\Observers;
 
 use App\Models\BlogPost;
+use Illuminate\Support\Carbon;
 
 class BlogPostObserver
 {
@@ -16,8 +17,8 @@ class BlogPostObserver
     {
         $this->setPublishedAt($blogPost);
         $this->setSlug($blogPost);
-        $this->setHtml();
-        $this->setUser();
+        $this->setHtml($blogPost);
+        $this->setUser($blogPost);
     }
 
     /**

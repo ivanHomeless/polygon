@@ -17,22 +17,25 @@ Route::get('/', function () {
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::group(['namespace' => 'Blog', 'prefix' => 'blog'], function () {
-    Route::resource('posts', 'PostController')->names('blog.posts');
-});
-
 Route::group(['prefix' => 'digging_deeper'], function () {
-    Route::get('collections', 'DiggingDeeperController@collections')
+    Route::get('collections', [\App\Http\Controllers\DiggingDeeperController::class, 'collection'])
         ->name('digging_deeper.collection');
+
+    Route::get('process-video', [\App\Http\Controllers\DiggingDeeperController::class, 'processVideo'])
+        ->name('digging_deeper.process-video');
 
     Route::get('prepare-catalog', 'DiggingDeeperController@prepareCatalog')
         ->name('digging_deeper.prepare-catalog');;
 
 });
 
+Route::group(['namespace' => 'App\Http\Controllers\Blog', 'prefix' => 'blog'], function () {
+    Route::resource('posts', 'PostController')->names('blog.posts');
+});
+
 // Админка блога
 $groupData = [
-    'namespace' => 'Blog\Admin',
+    'namespace' => 'App\Http\Controllers\Blog\Admin',
     'prefix'    => 'admin/blog',
 ];
 Route::group($groupData, function () {

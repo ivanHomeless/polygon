@@ -1,6 +1,8 @@
 <?php
+namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
 class UsersTableSeeder extends Seeder
@@ -24,7 +26,6 @@ class UsersTableSeeder extends Seeder
                 'password' => bcrypt('123123'),
             ],
         ];
-
         DB::table('users')->insert($data);
     }
 }

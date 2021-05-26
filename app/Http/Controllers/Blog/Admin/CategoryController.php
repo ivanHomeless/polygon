@@ -14,7 +14,7 @@ use Illuminate\View\View;
 class CategoryController extends BaseController
 {
     /**
-     * @var BlogCategoryRepository
+     * @var
      */
     private $blogCategoryRepository;
 
